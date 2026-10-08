@@ -33,3 +33,21 @@ print("El comunicado es:" + comunicado)
 nuevo_comunicado = comunicado.replace("Naboo", "Tatooine")
 print("El nuevo comunicasdo es:" + nuevo_comunicado)
 
+planetas = "Naboo, Tatooine, Coruscant, Alderaan"
+planetas_lista = planetas.split(", ")
+print("La lista de planetas es:" + str(planetas_lista))
+print( "El primer planeta es:" + planetas_lista[0])
+
+droide = "R2-D2"
+print("El droide es:" + droide)
+print("El primer caracter del droide es:" + droide[0])
+print("El segundo caracter del droide es:" + droide[1])
+print("El tercer caracter del droide es:" + droide[2])
+print("El cuarto caracter del droide es:" + droide[3])
+print("El quinto caracter del droide es:" + droide[4])
+print("El sexto caracter del droide es:" + droide[5])
+print("El ultimo caracter del droide es:" + droide[-1])
+
+planeta = "    Naboo   "
+print("El planeta es:" + planeta)
+print("El planeta sin espacios es:" + planeta.strip()) 
