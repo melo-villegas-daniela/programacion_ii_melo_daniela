@@ -45,7 +45,6 @@ print("El segundo caracter del droide es:" + droide[1])
 print("El tercer caracter del droide es:" + droide[2])
 print("El cuarto caracter del droide es:" + droide[3])
 print("El quinto caracter del droide es:" + droide[4])
-print("El sexto caracter del droide es:" + droide[5])
 print("El ultimo caracter del droide es:" + droide[-1])
 
 planeta = "    Naboo   "

@@ -43,6 +43,7 @@ else:
     print("No tienes suficientes creditos para comprar el repuesto")
 
 precio = 0
+total = 0
 
 peso_paquete = float(input("Ingrese el peso del paquete en kg(puede tener decimales):"))
 
