@@ -1,0 +1,125 @@
+=====================================================================
+
+PROGRAMACIÓN 2 - ARCHIVO .GITIGNORE MULTIPROYECTO (Python, Django, Odoo)
+
+Este archivo abarca tanto la raíz como cualquier carpeta o subcarpeta anidada.
+
+=====================================================================
+
+1. ENTORNO VIRTUALES Y DEPENDENCIAS (Global y Recursivo)
+
+---------------------------------------------------------------------
+
+/env/
+/venv/
+/ENV/
+/.env
+/.venv/
+/env.bak/
+/venv.bak/
+/.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+Gestores de paquetes alternativos
+
+.pip/
+pip-log.txt
+pip-delete-this-directory.txt
+poetry.lock
+Pipfile.lock
+/pypackages/
+
+2. PYTHON - ARCHIVOS COMPILADOS Y CACHÉ (Global y Recursivo)
+
+---------------------------------------------------------------------
+
+/pycache/
+*.py[cod]
+*$py.class
+.so
+.cache/
+.pytest_cache/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+3. DJANGO SPECIFIC (Global y Recursivo para subproyectos)
+
+---------------------------------------------------------------------
+
+/db.sqlite3
+/db.sqlite3-journal
+/local_settings.py
+/media/
+/staticfiles/
+/logs/
+*.log
+/celerybeat-schedule
+/celerybeat.pid
+
+4. ODOO SPECIFIC (Global y Recursivo para subproyectos/módulos)
+
+---------------------------------------------------------------------
+
+/filestore/
+/.filestore/
+/sessions/
+odoo.conf
+*.conf
+*.pid
+/data/
+
+Módulos temporales o archivos de traducción generados
+
+*.pot
+*.po~
+*.mo
+
+5. CONFIGURACIÓN DE IDEs, EDITORES Y SISTEMA OPERATIVO
+
+---------------------------------------------------------------------
+
+VS Code
+
+.vscode/
+
+PyCharm / IntelliJ
+
+.idea/
+*.iml
+*.iws
+
+Sublime Text / Atom / Eclipse
+
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+.spyderproject
+.spyproject
+.ropeproject
