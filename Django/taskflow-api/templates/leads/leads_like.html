@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Station - Coworking</title>
+
+    <style>
+        :root {
+            --naranja: #f36b35;
+            --texto: #292826;
+            --gris: #77746f;
+            --fondo: #f5f4f1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--texto);
+            background: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1160px;
+            margin: auto;
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            background: white;
+        }
+
+        .navegacion {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            display: inline-block;
+            width: 27px;
+            height: 27px;
+            margin-right: 8px;
+            background: var(--naranja);
+            border-radius: 50% 50% 50% 8px;
+            transform: rotate(-25deg);
+            vertical-align: middle;
+        }
+
+        .enlaces {
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .enlaces a:hover {
+            color: var(--naranja);
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 12px 17px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .boton-naranja {
+            background: var(--naranja);
+            color: white;
+        }
+
+        .boton-naranja:hover {
+            background: #d95725;
+        }
+
+        .boton-borde {
+            border-color: #aaa59e;
+            background: transparent;
+        }
+
+        .boton-borde:hover {
+            color: var(--naranja);
+            border-color: var(--naranja);
+        }
+
+        /* PORTADA */
+
+        .portada {
+            background: var(--fondo);
+            overflow: hidden;
+        }
+
+        .portada-contenido {
+            min-height: 465px;
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            align-items: center;
+            gap: 30px;
+            padding-top: 35px;
+            padding-bottom: 40px;
+        }
+
+        /* IMAGENES DIAGONALES */
+
+        .collage {
+            position: relative;
+            min-height: 355px;
+        }
+
+        .foto {
+            position: absolute;
+            overflow: hidden;
+            border-radius: 90px;
+            transform: rotate(-38deg);
+            box-shadow: 0 12px 25px #31291c12;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: rotate(38deg) scale(1.35);
+        }
+
+        .foto1 {
+            width: 185px;
+            height: 370px;
+            left: 22px;
+            top: -5px;
+        }
+
+        .foto2 {
+            width: 170px;
+            height: 345px;
+            left: 155px;
+            top: 18px;
+        }
+
+        .foto3 {
+            width: 145px;
+            height: 300px;
+            left: 278px;
+            top: 43px;
+        }
+
+        .forma-naranja {
+            position: absolute;
+            width: 65px;
+            height: 125px;
+            right: 15px;
+            top: -36px;
+            border-radius: 50px;
+            background: var(--naranja);
+            transform: rotate(-38deg);
+        }
+
+        .punto-naranja {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            left: 27px;
+            bottom: 25px;
+            border-radius: 50%;
+            background: var(--naranja);
+        }
+
+        /* TEXTO DE PORTADA */
+
+        .texto-portada {
+            max-width: 450px;
+            padding-left: 10px;
+        }
+
+        .etiqueta {
+            margin-bottom: 16px;
+            color: var(--naranja);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1, h2, .numero {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: normal;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-size: clamp(38px, 4.5vw, 59px);
+            line-height: 1.02;
+        }
+
+        h1 span, h2 span {
+            color: var(--naranja);
+        }
+
+        .texto-portada p {
+            max-width: 390px;
+            margin-bottom: 24px;
+            color: #6e6a65;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* BARRA DE CATEGORIAS */
+
+        .categorias {
+            border-bottom: 1px solid #eee;
+        }
+
+        .categorias-contenido {
+            min-height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .categorias a {
+            font-size: 11px;
+            color: var(--gris);
+        }
+
+        .categorias a:hover {
+            color: var(--naranja);
+        }
+
+        .categorias .boton-naranja {
+            color: white;
+        }
+
+        /* BIENVENIDA */
+
+        .bienvenida {
+            padding: 66px 0 38px;
+        }
+
+        .bienvenida-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        h2 {
+            margin: 0 0 19px;
+            font-size: clamp(32px, 3.2vw, 43px);
+            line-height: 1.12;
+        }
+
+        .texto-bienvenida p {
+            max-width: 470px;
+            color: var(--gris);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* BENEFICIOS */
+
+        .beneficios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px 18px;
+            margin: 25px 0 26px;
+            color: #5e5a55;
+            font-size: 11px;
+        }
+
+        .beneficios span::before {
+            content: "✓";
+            display: inline-grid;
+            place-items: center;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border-radius: 50%;
+            color: var(--naranja);
+            background: #fff0e8;
+            font-weight: bold;
+        }
+
+        /* FOTO DE BIENVENIDA */
+
+        .imagen-bienvenida {
+            height: 340px;
+            position: relative;
+        }
+
+        .imagen-bienvenida img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nota-imagen {
+            position: absolute;
+            bottom: 16px;
+            left: -17px;
+            padding: 14px 18px;
+            background: white;
+            box-shadow: 0 8px 25px #00000012;
+            font-size: 11px;
+        }
+
+        .nota-imagen strong {
+            display: block;
+            margin-bottom: 4px;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        /* ESTADISTICAS */
+
+        .estadisticas {
+            padding: 12px 0 65px;
+        }
+
+        .estadisticas-contenido {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .numero {
+            font-size: clamp(35px, 4vw, 49px);
+            line-height: 1;
+        }
+
+        .numero span {
+            color: var(--naranja);
+        }
+
+        .descripcion-numero {
+            margin-top: 12px;
+            color: #858079;
+            font-size: 10px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        /* ESPACIOS */
+
+        .espacios {
+            padding: 56px 0 65px;
+            background: var(--fondo);
+            text-align: center;
+        }
+
+        .espacios-intro {
+            max-width: 510px;
+            margin: 0 auto 28px;
+            color: var(--gris);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+
+        .tarjeta {
+            background: white;
+        }
+
+        .tarjeta img {
+            display: block;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .tarjeta-texto {
+            padding: 18px;
+        }
+
+        .tarjeta h3 {
+            margin: 0 0 8px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .tarjeta p {
+            margin: 0;
+            color: var(--gris);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* PIE DE PAGINA */
+
+        footer {
+            padding: 26px 0;
+            background: #262522;
+            color: #eee9e2;
+            font-size: 11px;
+        }
+
+        .pie-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pie-contenido .logo {
+            color: white;
+        }
+
+        .pie-contenido p {
+            color: #c5bfb5;
+        }
+
+        /* DISEÑO PARA TABLETS */
+
+        @media (max-width: 800px) {
+            .enlaces {
+                display: none;
+            }
+
+            .portada-contenido {
+                grid-template-columns: 1fr;
+                padding-top: 35px;
+            }
+
+            .collage {
+                width: min(470px, 100%);
+                min-height: 300px;
+                margin: auto;
+                transform: scale(.9);
+            }
+
+            .texto-portada {
+                max-width: 620px;
+                padding-bottom: 18px;
+            }
+
+            .bienvenida-contenido {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .imagen-bienvenida {
+                height: 320px;
+            }
+
+            .categorias-contenido {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 16px 0;
+            }
+
+            .categorias a {
+                margin: 4px 8px;
+            }
+        }
+
+        /* DISEÑO PARA CELULARES */
+
+        @media (max-width: 540px) {
+            header {
+                height: 65px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .navegacion > .boton {
+                padding: 10px 12px;
+            }
+
+            .portada-contenido {
+                gap: 5px;
+            }
+
+            .collage {
+                min-height: 245px;
+                width: 135%;
+                margin: -10px 0 -10px -17%;
+                transform: scale(.72);
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .bienvenida {
+                padding-top: 45px;
+            }
+
+            .beneficios {
+                gap: 12px 8px;
+            }
+
+            .imagen-bienvenida {
+                height: 250px;
+            }
+
+            .nota-imagen {
+                left: 8px;
+                bottom: 8px;
+            }
+
+            .estadisticas-contenido {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 12px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .tarjeta img {
+                height: 210px;
+            }
+
+            .pie-contenido {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="contenedor navegacion">
+            <a class="logo" href="#inicio">
+                <span></span>the station
+            </a>
+
+            <nav class="enlaces">
+                <a href="#espacios">Nuestros espacios</a>
+                <a href="#nosotros">Sobre nosotros</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <a class="boton boton-naranja" href="#espacios">
+                Reserva un espacio
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PORTADA PRINCIPAL -->
+        <section class="portada" id="inicio">
+            <div class="contenedor portada-contenido">
+
+                <div class="collage">
+                    <div class="foto foto1">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=700&q=85"
+                             alt="Espacio de trabajo luminoso">
+                    </div>
+
+                    <div class="foto foto2">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85"
+                             alt="Equipo colaborando">
+                    </div>
+
+                    <div class="foto foto3">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=85"
+                             alt="Oficina compartida">
+                    </div>
+
+                    <div class="forma-naranja"></div>
+                    <div class="punto-naranja"></div>
+                </div>
+
+                <div class="texto-portada">
+                    <div class="etiqueta">Tu espacio, tu comunidad</div>
+
+                    <h1>
+                        Your <span>Space</span> to<br>
+                        Connect Offline
+                    </h1>
+
+                    <p>
+                        Encuentra el lugar perfecto para concentrarte,
+                        trabajar, reunirte y crecer con personas que
+                        comparten tus ideas.
+                    </p>
+
+                    <div class="botones">
+                        <a class="boton boton-naranja" href="#espacios">
+                            Descubre tu espacio
+                        </a>
+
+                        <a class="boton boton-borde" href="#nosotros">
+                            Ver más ↗
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BARRA DE CATEGORIAS -->
+        <nav class="categorias">
+            <div class="contenedor categorias-contenido">
+                <a href="#espacios">Hot desks</a>
+                <a href="#espacios">Oficinas privadas</a>
+                <a href="#espacios">Salas de reuniones</a>
+                <a href="#beneficios">Membresías flexibles</a>
+                <a href="#contacto">Eventos</a>
+                <a class="boton boton-naranja" href="#contacto">
+                    Reserva ahora
+                </a>
+            </div>
+        </nav>
+
+        <!-- BIENVENIDA -->
+        <section class="bienvenida" id="nosotros">
+            <div class="contenedor bienvenida-contenido">
+
+                <div class="texto-bienvenida">
+                    <div class="etiqueta">Bienvenido a The Station</div>
+
+                    <h2>
+                        Welcome to <span>The Station!</span>
+                    
+                    </h2>
+                    <h2>
+                        {{titulo}} {{nombre}} {{apellido}}
+                    </h2>
+
+                    <p>
+                        The Station es un espacio de coworking acogedor
+                        y moderno, ubicado en el corazón de la ciudad.
+                        Un lugar pensado para trabajar mejor y conectar
+                        con nuevas ideas.
+                    </p>
+
+                    <p>
+                        Ya sea que trabajes por tu cuenta o formes parte
+                        de un equipo, aquí encontrarás comodidad,
+                        inspiración y una comunidad que te impulsa.
+                    </p>
+
+                    <div class="beneficios" id="beneficios">
+                        <span>Internet de alta velocidad</span>
+                        <span>Espacios cómodos</span>
+                        <span>Salas de reuniones</span>
+                        <span>Café y bebidas</span>
+                        <span>Eventos y comunidad</span>
+                        <span>Horarios flexibles</span>
+                    </div>
+
+                    <div class="botones">
+                        <a class="boton boton-naranja" href="#espacios">
+                            Únete ahora
+                        </a>
+
+                        <a class="boton boton-borde" href="#contacto">
+                            Leer más
+                        </a>
+                    </div>
+                </div>
+
+                <div class="imagen-bienvenida">
+                    <img src="https://images.unsplash.com/photo-1497366811353-b413da4baf72?auto=format&fit=crop&w=1100&q=85"
+                         alt="Personas trabajando en una oficina luminosa">
+
+                    <div class="nota-imagen">
+                        <strong>Trabaja a tu manera</strong>
+                        Un espacio para hacer grandes ideas realidad.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ESTADISTICAS -->
+        <section class="estadisticas">
+            <div class="contenedor estadisticas-contenido">
+
+                <div>
+                    <div class="numero">120<span>+</span></div>
+                    <div class="descripcion-numero">Miembros activos</div>
+                </div>
+
+                <div>
+                    <div class="numero">15</div>
+                    <div class="descripcion-numero">Espacios de trabajo</div>
+                </div>
+
+                <div>
+                    <div class="numero">98<span>%</span></div>
+                    <div class="descripcion-numero">Clientes satisfechos</div>
+                </div>
+
+                <div>
+                    <div class="numero">24<span>/7</span></div>
+                    <div class="descripcion-numero">Acceso flexible</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ESPACIOS DISPONIBLES -->
+        <section class="espacios" id="espacios">
+            <div class="contenedor">
+
+                <div class="etiqueta">Encuentra tu lugar</div>
+                <h2>Espacios para cada idea</h2>
+
+                <p class="espacios-intro">
+                    Elige el ambiente que mejor se adapte a tu forma
+                    de trabajar y haz que cada día cuente.
+                </p>
+
+                <div class="tarjetas">
+
+                    <article class="tarjeta">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=85"
+                             alt="Escritorios en espacio compartido">
+
+                        <div class="tarjeta-texto">
+                            <h3>Hot desks</h3>
+                            <p>
+                                Un lugar flexible para concentrarte,
+                                crear y conectar.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
+                             alt="Oficina privada moderna">
+
+                        <div class="tarjeta-texto">
+                            <h3>Oficinas privadas</h3>
+                            <p>
+                                Privacidad y comodidad para ti
+                                o para tu equipo.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85"
+                             alt="Sala de reuniones">
+
+                        <div class="tarjeta-texto">
+                            <h3>Salas de reuniones</h3>
+                            <p>
+                                Espacios preparados para compartir
+                                ideas y avanzar.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer id="contacto">
+        <div class="contenedor pie-contenido">
+
+            <a class="logo" href="#inicio">
+                <span></span>the station
+            </a>
+
+            <p>Un lugar para trabajar, conectar y crecer.</p>
+
+            <p>
+                © 2026 The Station |
+                Contacto: hola@thestation.example
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>
+
+</body>
+</html>
