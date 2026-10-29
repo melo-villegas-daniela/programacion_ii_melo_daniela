@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+
+{% block title %}Inicio | TaskFlow{% endblock %}
+
+{% block content %}
+    <h2>{{ titulo }}</h2>
+    <p>{{ mensaje }}</p>
+
+    <h3>¿Qué deseas hacer?</h3>
+
+    <ul>
+        <li>
+            <a href="{% url 'tasks:project-list' %}">
+                Ver proyectos
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'tasks:project_create' %}">
+                Crear un proyecto
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'tasks:task_create' %}">
+                Crear una tarea
+            </a>
+        </li>
+    </ul>
+{% endblock %}

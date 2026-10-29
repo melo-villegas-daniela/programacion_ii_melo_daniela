@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block title %}Proyectos | TaskFlow{% endblock %}
+
+{% block content %}
+    <h2>{{ titulo }}</h2>
+    <p>{{ mensaje }}</p>
+
+    <p>
+        <a href="{% url 'tasks:project_create' %}">
+            + Crear proyecto
+        </a>
+        |
+        <a href="{% url 'tasks:task_create' %}">
+            + Crear tarea
+        </a>
+    </p>
+
+    <h3>Proyectos registrados</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Fecha de creación</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>{{ project.name }}</td>
+                    <td>
+                        {{ project.description|default:"Sin descripción disponible." }}
+                    </td>
+                    <td>
+                        {{ project.created_at|date:"d/m/Y" }}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">
+                        No hay proyectos registrados aún.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
