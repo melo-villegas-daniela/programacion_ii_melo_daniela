@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}TaskFlow{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Autora: Daniela Melo </h1>
+        <h2> Universidad UTE</h2>
+
+        <nav>
+            <a href="{% url 'tasks:home' %}">Inicio</a>
+            <a href="{% url 'tasks:project-list' %}">Proyectos</a>
+            <a href="{% url 'tasks:project_create' %}">Nuevo proyecto</a>
+            <a href="{% url 'tasks:task_create' %}">Nueva tarea</a>
+            <a href="{% url 'tasks:sobre_nosotros' %}">Sobre nosotros</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 TaskFlow</p>
+    </footer>
+</body>
+</html>
