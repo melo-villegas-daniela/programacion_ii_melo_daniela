@@ -7,12 +7,16 @@
 </head>
 <body>
     <h1>Inicio</h1>
-    <p>Bienvenido a la aplicación de gestión de libros.</p>
+    <p>Bienvenido Sr(a). {{request.user.username}} a la aplicación de gestión de libros.</p>
     <p>Desde aqui puedes gestionar los libros de la biblioteca.</p>
     <h2>Menu Principal</h2>
     <ul>
         <li><a href="{% url 'libro_list' %}">Lista de Libros</a></li>
         <li><a href="{% url 'categoria_list' %}">Lista de Categorias</a></li>
     </ul>
+    <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Cerrar sesión</button>
+    </form>
 </body>
 </html>
