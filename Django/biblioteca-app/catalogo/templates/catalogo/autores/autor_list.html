@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Autores</title>
+</head>
+<body>
+    <h1>Biblioteca</h1>
+    <h2>Listado de Autores</h2>
+    {% if messages %}
+        {% for mensaje in messages %}
+            <p>{{ mensaje }}</p>
+        {% endfor %}
+    {% endif %}
+    <p>
+        <a href="{% url 'autor_create' %}">
+            Nuevo Autor
+        </a>
+     <button><a href="{% url 'libro_list' %}">Lista de Libros</a></button>
+
+
+    <button><a href="{% url 'home' %}">Atrás</a></button>
+    </p>
+
+
+
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Nacionalidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+                <tr>
+                    <td>{{ autor.id }}</td>
+                    <td>{{ autor.nombre }}</td>
+                    <td>{{ autor.apellido }}</td>
+                    <td>{{ autor.nacionalidad }}</td>
+                    <td>
+                        <a href="{% url 'autor_update' autor.pk %}">Editar</a>
+                        {%if perms.catalogo.delete_autor%}
+                        <a href="{% url 'autor_delete' autor.pk %}">Eliminar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">
+                        No existen autores registrados.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
